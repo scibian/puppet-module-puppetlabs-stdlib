@@ -1,3 +1,9 @@
+puppet-module-puppetlabs-stdlib (4.14.0-1sci8u1) scibian8; urgency=medium
+
+  * Imported upstream release 4.14.0
+
+ -- M'hamed Bouaziz <mhamed-externe.bouaziz@edf.fr>  Thu, 07 Feb 2019 15:04:31 +0100
+
 puppet-module-puppetlabs-stdlib (4.12.0-1sci8u1) scibian8; urgency=medium
 
   * Scibian8 rebuild.
