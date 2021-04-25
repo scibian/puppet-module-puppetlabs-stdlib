@@ -1,4 +1,7 @@
-# Returns the type when passed a value.
+# frozen_string_literal: true
+
+# @summary
+#   Returns the type of the passed value.
 #
 # @example how to compare values' types
 #   # compare the types of two values
@@ -10,9 +13,13 @@
 # See the documentation for "The Puppet Type System" for more information about types.
 # See the `assert_type()` function for flexible ways to assert the type of a value.
 #
-# The built-in type() function in puppet is generally preferred over this function 
+# The built-in type() function in puppet is generally preferred over this function
 # this function is provided for backwards compatibility.
 Puppet::Functions.create_function(:type_of) do
+  # @return [String]
+  #   the type of the passed value
+  #
+  # @param value
   def type_of(value)
     Puppet::Pops::Types::TypeCalculator.infer_set(value)
   end

@@ -1,24 +1,29 @@
+# frozen_string_literal: true
+
+#
+# validate_x509_rsa_key_pair.rb
+#
 module Puppet::Parser::Functions
+  newfunction(:validate_x509_rsa_key_pair, doc: <<-DOC
+    @summary
+      Validates a PEM-formatted X.509 certificate and RSA private key using
+      OpenSSL. Verifies that the certficate's signature was created from the
+      supplied key.
 
-  newfunction(:validate_x509_rsa_key_pair, :doc => <<-ENDHEREDOC
-    Validates a PEM-formatted X.509 certificate and RSA private key using
-    OpenSSL. Verifies that the certficate's signature was created from the
-    supplied key.
+    @return
+      Fail compilation if any value fails this check.
 
-    Fail compilation if any value fails this check.
+    ```validate_x509_rsa_key_pair($cert, $key)```
 
-    validate_x509_rsa_key_pair($cert, $key)
-
-    ENDHEREDOC
+    DOC
   ) do |args|
-
     require 'openssl'
 
     NUM_ARGS = 2 unless defined? NUM_ARGS
 
-    unless args.length == NUM_ARGS then
+    unless args.length == NUM_ARGS
       raise Puppet::ParseError,
-        ("validate_x509_rsa_key_pair(): wrong number of arguments (#{args.length}; must be #{NUM_ARGS})")
+            "validate_x509_rsa_key_pair(): wrong number of arguments (#{args.length}; must be #{NUM_ARGS})"
     end
 
     args.each do |arg|
@@ -40,8 +45,7 @@ module Puppet::Parser::Functions
     end
 
     unless cert.verify(key)
-      raise Puppet::ParseError, "Certificate signature does not match supplied key"
+      raise Puppet::ParseError, 'Certificate signature does not match supplied key'
     end
   end
-
 end
