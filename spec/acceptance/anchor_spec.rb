@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
-describe 'anchor type', :unless => UNSUPPORTED_PLATFORMS.include?(fact('operatingsystem')) do
-  describe 'success' do
-    it 'should effect proper chaining of resources' do
-      pp = <<-EOS
+describe 'anchor type' do
+  let(:pp) do
+    <<-MANIFEST
       class anchored {
         anchor { 'anchored::begin': }
         ~> anchor { 'anchored::end': }
@@ -16,11 +17,12 @@ describe 'anchor type', :unless => UNSUPPORTED_PLATFORMS.include?(fact('operatin
       }
 
       include anchorrefresh
-      EOS
+    MANIFEST
+  end
 
-      apply_manifest(pp, :catch_failures => true) do |r|
-        expect(r.stdout).to match(/Anchor\[final\]: Triggered 'refresh'/)
-      end
+  it 'applies manifest, anchors resources in correct order' do
+    apply_manifest(pp) do |r|
+      expect(r.stdout).to match(%r{Anchor\[final\]: Triggered 'refresh'})
     end
   end
 end
