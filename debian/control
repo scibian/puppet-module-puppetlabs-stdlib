@@ -3,7 +3,7 @@ Maintainer: Scibian Project <packaging@scibian.org>
 Uploaders: Stig Sandbeck Mathisen <ssm@debian.org>,
            Thomas Bechtold <toabctl@debian.org>
 Section: admin
-Testsuite: autopkgtest
+#Testsuite: autopkgtest
 Priority: optional
 Build-Depends: debhelper (>= 8)
 Standards-Version: 3.9.8
@@ -13,8 +13,8 @@ Homepage: https://forge.puppet.com/puppetlabs/stdlib
 
 Package: puppet-module-puppetlabs-stdlib
 Architecture: all
-#Depends: ${misc:Depends},
-#         puppet5 | puppet5-common
+Depends: ${misc:Depends},
+         puppet5 | puppet5-common
 Description: Puppet module standard library
  Puppet lets you centrally manage every important aspect of your system
  using a cross-platform specification language that manages all the
