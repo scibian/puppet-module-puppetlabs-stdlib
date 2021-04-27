@@ -1,3 +1,9 @@
+puppet-module-puppetlabs-stdlib (7.0.1-1sci9u5) scibian9; urgency=medium
+
+  * suppress tests/control to fix autopkgtest issue
+
+ -- Kwame AMEDODJI <kwame-externe.amedodji@edf.fr>  Tue, 27 Apr 2021 16:09:21 +0200
+
 puppet-module-puppetlabs-stdlib (7.0.1-1sci9u4) scibian9; urgency=medium
 
   * disable autopkgtest and add back dependencies
