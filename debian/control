@@ -13,7 +13,7 @@ Homepage: https://forge.puppet.com/puppetlabs/stdlib
 
 Package: puppet-module-puppetlabs-stdlib
 Architecture: all
-Depends: ${misc:Depends},
+#Depends: ${misc:Depends},
 #         puppet5 | puppet5-common
 Description: Puppet module standard library
  Puppet lets you centrally manage every important aspect of your system
