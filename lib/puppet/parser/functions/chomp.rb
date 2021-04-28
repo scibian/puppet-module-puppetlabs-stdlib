@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 #  chomp.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:chomp, type: :rvalue, doc: <<-DOC
+  newfunction(:chomp, :type => :rvalue, :doc => <<-DOC
     @summary
       **Deprecated** Removes the record separator from the end of a string or an array of strings.
 
@@ -18,7 +16,8 @@ module Puppet::Parser::Functions
     @return [String] The converted String, if it was a String that was given
     @return [Array[String]] The converted Array, if it was a Array that was given
     DOC
-  ) do |arguments|
+             ) do |arguments|
+
     raise(Puppet::ParseError, "chomp(): Wrong number of arguments given (#{arguments.size} for 1)") if arguments.empty?
 
     value = arguments[0]

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Returns the type of the passed value.
 #

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Returns true if the ipaddress is within the given CIDRs
 #

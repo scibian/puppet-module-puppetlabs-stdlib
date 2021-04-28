@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # bool2num.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:bool2num, type: :rvalue, doc: <<-DOC
+  newfunction(:bool2num, :type => :rvalue, :doc => <<-DOC
     @summary
       Converts a boolean to a number.
 
@@ -29,7 +27,8 @@ module Puppet::Parser::Functions
 
     @return [Integer] The converted value as a number
     DOC
-  ) do |arguments|
+             ) do |arguments|
+
     raise(Puppet::ParseError, "bool2num(): Wrong number of arguments given (#{arguments.size} for 1)") if arguments.empty?
 
     value = function_str2bool([arguments[0]])

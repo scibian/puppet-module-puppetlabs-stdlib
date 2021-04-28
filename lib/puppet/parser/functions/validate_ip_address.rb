@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # validate_ip_address.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:validate_ip_address, doc: <<-DOC
+  newfunction(:validate_ip_address, :doc => <<-DOC
     @summary
       Validate that all values passed are valid IP addresses,
       regardless they are IPv4 or IPv6
@@ -30,7 +28,8 @@ module Puppet::Parser::Functions
         $some_array = [ 1, true, false, "garbage string", "3ffe:505:2" ]
         validate_ip_address($some_array)
     DOC
-  ) do |args|
+             ) do |args|
+
     require 'ipaddr'
     rescuable_exceptions = [ArgumentError]
 

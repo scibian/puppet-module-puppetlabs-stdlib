@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Validate the passed value represents a hash.
 Puppet::Functions.create_function(:validate_hash) do

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Validate a value against both the target_type (new) and the previous_validation function (old).
 Puppet::Functions.create_function(:validate_legacy) do

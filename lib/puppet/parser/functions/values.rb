@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # values.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:values, type: :rvalue, doc: <<-DOC
+  newfunction(:values, :type => :rvalue, :doc => <<-DOC
     @summary
       When given a hash this function will return the values of that hash.
 
@@ -26,7 +24,8 @@ module Puppet::Parser::Functions
     will be used instead of this function.
 
   DOC
-  ) do |arguments|
+             ) do |arguments|
+
     raise(Puppet::ParseError, "values(): Wrong number of arguments given (#{arguments.size} for 1)") if arguments.empty?
 
     hash = arguments[0]

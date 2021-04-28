@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # has_key.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:has_key, type: :rvalue, doc: <<-'DOC') do |args|
+  newfunction(:has_key, :type => :rvalue, :doc => <<-'DOC') do |args|
     @summary
       **Deprecated:** Determine if a hash has a certain key value.
 

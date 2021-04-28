@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'yaml'
 # @summary
 #   Convert a data structure and output it as YAML

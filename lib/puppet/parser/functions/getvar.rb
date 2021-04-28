@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # getvar.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:getvar, type: :rvalue, doc: <<-'DOC') do |args|
+  newfunction(:getvar, :type => :rvalue, :doc => <<-'DOC') do |args|
     @summary
       Lookup a variable in a given namespace.
 
@@ -36,7 +34,7 @@ module Puppet::Parser::Functions
 
       # avoid relying on inconsistent behaviour around ruby return values from catch
       result
-    rescue Puppet::ParseError
+    rescue Puppet::ParseError # rubocop:disable Lint/HandleExceptions : Eat the exception if strict_variables = true is set
     end
   end
 end

@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # validate_x509_rsa_key_pair.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:validate_x509_rsa_key_pair, doc: <<-DOC
+  newfunction(:validate_x509_rsa_key_pair, :doc => <<-DOC
     @summary
       Validates a PEM-formatted X.509 certificate and RSA private key using
       OpenSSL. Verifies that the certficate's signature was created from the
@@ -16,7 +14,8 @@ module Puppet::Parser::Functions
     ```validate_x509_rsa_key_pair($cert, $key)```
 
     DOC
-  ) do |args|
+             ) do |args|
+
     require 'openssl'
 
     NUM_ARGS = 2 unless defined? NUM_ARGS

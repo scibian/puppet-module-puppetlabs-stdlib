@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Returns true if str ends with one of the prefixes given. Each of the prefixes should be a String.
 #

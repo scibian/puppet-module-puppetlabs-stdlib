@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'spec_helper'
 
 describe 'has_ip_address' do
@@ -10,10 +8,10 @@ describe 'has_ip_address' do
   context 'when on Linux Systems' do
     let(:facts) do
       {
-        interfaces: 'eth0,lo',
-        ipaddress: '10.0.0.1',
-        ipaddress_lo: '127.0.0.1',
-        ipaddress_eth0: '10.0.0.1',
+        :interfaces => 'eth0,lo',
+        :ipaddress => '10.0.0.1',
+        :ipaddress_lo => '127.0.0.1',
+        :ipaddress_eth0 => '10.0.0.1',
       }
     end
 

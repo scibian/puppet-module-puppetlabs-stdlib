@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # join_keys_to_values.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:join_keys_to_values, type: :rvalue, doc: <<-DOC
+  newfunction(:join_keys_to_values, :type => :rvalue, :doc => <<-DOC
     @summary
       This function joins each key of a hash to that key's corresponding value with a
       separator.
@@ -25,7 +23,8 @@ module Puppet::Parser::Functions
     formatting of values in the array) - see the `new` function for `String` and its formatting
     options for `Array` and `Hash`.
     DOC
-  ) do |arguments|
+             ) do |arguments|
+
     # Validate the number of arguments.
     if arguments.size != 2
       raise(Puppet::ParseError, "join_keys_to_values(): Takes exactly two arguments, but #{arguments.size} given.")

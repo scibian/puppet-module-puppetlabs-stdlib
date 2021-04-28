@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # delete_at.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:delete_at, type: :rvalue, doc: <<-DOC) do |arguments|
+  newfunction(:delete_at, :type => :rvalue, :doc => <<-DOC) do |arguments|
     @summary
       Deletes a determined indexed value from an array.
 

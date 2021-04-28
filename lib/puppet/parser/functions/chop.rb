@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 #  chop.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:chop, type: :rvalue, doc: <<-DOC
+  newfunction(:chop, :type => :rvalue, :doc => <<-DOC
     @summary
       **Deprecated** Returns a new string with the last character removed.
 
@@ -18,7 +16,8 @@ module Puppet::Parser::Functions
 
     @return [String] The given String, sans the last character.
     DOC
-  ) do |arguments|
+             ) do |arguments|
+
     raise(Puppet::ParseError, "chop(): Wrong number of arguments given (#{arguments.size} for 1)") if arguments.empty?
 
     value = arguments[0]

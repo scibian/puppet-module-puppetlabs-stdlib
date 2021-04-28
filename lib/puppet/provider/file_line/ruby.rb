@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Puppet::Type.type(:file_line).provide(:ruby) do
   desc <<-DOC
     @summary
@@ -79,7 +77,7 @@ Puppet::Type.type(:file_line).provide(:ruby) do
     #  small-ish config files that can fit into memory without
     #  too much trouble.
 
-    @lines ||= File.readlines(resource[:path], encoding: resource[:encoding])
+    @lines ||= File.readlines(resource[:path], :encoding => resource[:encoding])
   rescue TypeError => _e
     # Ruby 1.8 doesn't support open_args
     @lines ||= File.readlines(resource[:path])
@@ -94,13 +92,13 @@ Puppet::Type.type(:file_line).provide(:ruby) do
   end
 
   def count_matches(regex)
-    lines.count do |line|
+    lines.select { |line|
       if resource[:replace_all_matches_not_matching_line].to_s == 'true'
         line.match(regex) unless line.chomp == resource[:line]
       else
         line.match(regex)
       end
-    end
+    }.size
   end
 
   def handle_create_with_match

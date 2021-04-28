@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # bool2str.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:bool2str, type: :rvalue, doc: <<-DOC
+  newfunction(:bool2str, :type => :rvalue, :doc => <<-DOC
     @summary
       Converts a boolean to a string using optionally supplied arguments.
 
@@ -38,7 +36,8 @@ module Puppet::Parser::Functions
         notice(String(true, '%y'))    # Notices 'no'
       ```
     DOC
-  ) do |arguments|
+             ) do |arguments|
+
     unless arguments.size == 1 || arguments.size == 3
       raise(Puppet::ParseError, "bool2str(): Wrong number of arguments given (#{arguments.size} for 3)")
     end

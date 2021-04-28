@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Wrapper that calls the Puppet 3.x function of the same name.
 Puppet::Functions.create_function(:is_ipv6_address) do

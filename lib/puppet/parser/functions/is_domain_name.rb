@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # is_domain_name.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:is_domain_name, type: :rvalue, doc: <<-DOC
+  newfunction(:is_domain_name, :type => :rvalue, :doc => <<-DOC
     @summary
       **Deprecated:** Returns true if the string passed to this function is
       a syntactically correct domain name.
@@ -15,7 +13,8 @@ module Puppet::Parser::Functions
     > **Note:* **Deprecated** Will be removed in a future version of stdlib. See
     [`validate_legacy`](#validate_legacy).
     DOC
-  ) do |arguments|
+             ) do |arguments|
+
     if arguments.size != 1
       raise(Puppet::ParseError, "is_domain_name(): Wrong number of arguments given #{arguments.size} for 1")
     end
@@ -51,7 +50,7 @@ module Puppet::Parser::Functions
       break if label.length > label_max_length
       break if label[-1..-1] == '-'
       break if label[0..0] == '-'
-      break unless %r{^[a-z\d-]+$}i.match?(label)
+      break unless %r{^[a-z\d-]+$}i =~ label
     end
     return vlabels == labels
   end

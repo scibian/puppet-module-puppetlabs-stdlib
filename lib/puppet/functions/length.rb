@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   **Deprecated:** A function to eventually replace the old size() function for stdlib
 #

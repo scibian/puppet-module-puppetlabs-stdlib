@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Validate the string represents an absolute path in the filesystem.
 Puppet::Functions.create_function(:validate_absolute_path) do

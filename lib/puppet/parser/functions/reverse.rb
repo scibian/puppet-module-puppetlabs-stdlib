@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # reverse.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:reverse, type: :rvalue, doc: <<-DOC
+  newfunction(:reverse, :type => :rvalue, :doc => <<-DOC
     @summary
       Reverses the order of a string or array.
 
@@ -13,7 +11,8 @@ module Puppet::Parser::Functions
 
     > *Note:* that the same can be done with the reverse_each() function in Puppet.
     DOC
-  ) do |arguments|
+             ) do |arguments|
+
     raise(Puppet::ParseError, "reverse(): Wrong number of arguments given (#{arguments.size} for 1)") if arguments.empty?
 
     value = arguments[0]

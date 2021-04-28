@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # empty.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:empty, type: :rvalue, doc: <<-DOC
+  newfunction(:empty, :type => :rvalue, :doc => <<-DOC
     @summary
       **Deprecated:** Returns true if the variable is empty.
 
@@ -15,7 +13,8 @@ module Puppet::Parser::Functions
     > *Note*: **Deprecated** from Puppet 5.5.0, the built-in
     [`empty`](https://puppet.com/docs/puppet/6.4/function.html#empty) function will be used instead.
   DOC
-  ) do |arguments|
+             ) do |arguments|
+
     raise(Puppet::ParseError, "empty(): Wrong number of arguments given (#{arguments.size} for 1)") if arguments.empty?
     value = arguments[0]
 

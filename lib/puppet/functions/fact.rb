@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Digs into the facts hash using dot-notation
 #

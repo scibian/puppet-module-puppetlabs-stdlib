@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 #
 # clamp.rb
 #
 module Puppet::Parser::Functions
-  newfunction(:clamp, type: :rvalue, arity: -2, doc: <<-DOC
+  newfunction(:clamp, :type => :rvalue, :arity => -2, :doc => <<-DOC
     @summary
       Keeps value within the range [Min, X, Max] by sort based on integer value
       (parameter order doesn't matter).
@@ -24,7 +22,8 @@ module Puppet::Parser::Functions
 
     @return [Array[Integer]] The sorted Array
     DOC
-  ) do |args|
+             ) do |args|
+
     args.flatten!
 
     raise(Puppet::ParseError, 'clamp(): Wrong number of arguments, need three to clamp') if args.size != 3
@@ -33,7 +32,7 @@ module Puppet::Parser::Functions
     args.each do |value|
       case [value.class]
       when [String]
-        raise(Puppet::ParseError, "clamp(): Required explicit numeric (#{value}:String)") unless %r{^\d+$}.match?(value)
+        raise(Puppet::ParseError, "clamp(): Required explicit numeric (#{value}:String)") unless value =~ %r{^\d+$}
       when [Hash]
         raise(Puppet::ParseError, "clamp(): The Hash type is not allowed (#{value})")
       end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # @summary
 #   Checks if the OS version is at least a certain version.
 # > *Note:*

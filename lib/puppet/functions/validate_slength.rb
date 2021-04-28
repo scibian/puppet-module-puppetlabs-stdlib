@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 #  Validate that a passed string has length less/equal with the passed value
 Puppet::Functions.create_function(:validate_slength) do
   # @param scope
