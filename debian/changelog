@@ -1,3 +1,9 @@
+puppet-module-puppetlabs-stdlib (7.0.1-1sci9u6) scibian9; urgency=medium
+
+  * add missing types in install files
+
+ -- Kwame AMEDODJI <kwame-externe.amedodji@edf.fr>  Thu, 29 Apr 2021 13:29:45 +0200
+
 puppet-module-puppetlabs-stdlib (7.0.1-1sci9u5) scibian9; urgency=medium
 
   * suppress tests/control to fix autopkgtest issue
